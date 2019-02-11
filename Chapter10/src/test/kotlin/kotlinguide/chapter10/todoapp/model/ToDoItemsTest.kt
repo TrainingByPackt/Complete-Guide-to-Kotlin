@@ -2,6 +2,7 @@ package kotlinguide.chapter10.todoapp.model
 
 import assertk.*
 import assertk.assertions.hasSize
+import assertk.assertions.isEmpty
 import assertk.assertions.isEqualTo
 import assertk.assertions.isNull
 import org.junit.jupiter.api.Test
@@ -43,7 +44,7 @@ internal class ToDoItemsTest{
     fun `at start is empty`(){
         val emtpyItems = ThingsToDo()
 
-        assertThat(emtpyItems.allActive()).hasSize(0)
+        assertThat(emtpyItems.allActive()).isEmpty()
     }
 
     @Test

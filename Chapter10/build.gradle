@@ -40,6 +40,5 @@ dependencies {
     testCompile "com.willowtreeapps.assertk:assertk-jvm:0.13"
     testCompile "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testCompile "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
-    testCompile "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
 }
 
