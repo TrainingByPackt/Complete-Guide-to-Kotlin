@@ -14,7 +14,7 @@ internal class ToDoItemsTest{
         ThingToDo(
             "ignore the test",
             4,
-            ToDoStatus.Cancelled
+            ToDoStatus.Canceled
         )
     )
     val i1 = items.add(
@@ -54,7 +54,7 @@ internal class ToDoItemsTest{
             assertThat(get(i1)?.description).isEqualTo("run the tests")
             assertThat(get(i2)?.priority).isEqualTo(2)
             assertThat(get(i3)?.status).isEqualTo(ToDoStatus.NotStarted)
-            assertThat(get(i4)?.status).isEqualTo(ToDoStatus.Cancelled)
+            assertThat(get(i4)?.status).isEqualTo(ToDoStatus.Canceled)
 
         }
     }

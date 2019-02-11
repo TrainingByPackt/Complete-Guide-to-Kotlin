@@ -14,7 +14,7 @@ class ThingsToDo {
     operator fun get(id: ItemId): ThingToDo? = map[id]
 
     fun allActive(): List<ThingToDo> = map.values
-        .filter { it.status != ToDoStatus.Cancelled }
+        .filter { it.status != ToDoStatus.Canceled }
         .sortedBy { it.priority }
 
     fun add(toDo: ThingToDo): ItemId =
