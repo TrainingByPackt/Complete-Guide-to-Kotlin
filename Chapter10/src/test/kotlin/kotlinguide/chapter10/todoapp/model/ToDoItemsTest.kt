@@ -83,7 +83,7 @@ internal class ToDoItemsTest{
 
     val newItem = ThingToDo(
         "new",
-        99,
+        9,
         ToDoStatus.NotStarted
     )
 
