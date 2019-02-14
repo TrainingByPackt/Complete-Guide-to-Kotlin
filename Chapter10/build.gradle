@@ -8,7 +8,9 @@ buildscript {
 
     repositories {
         jcenter()
-    }
+        mavenCentral()
+        maven {url "https://dl.bintray.com/kotlin/kotlinx"}
+}
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}"
     }
@@ -21,6 +23,7 @@ wrapper {
 repositories {
     mavenCentral()
     jcenter()
+    maven {url "https://dl.bintray.com/kotlin/kotlinx"}
 }
 
 ext.ktorVersion = "1.1.2"
