@@ -23,6 +23,8 @@ import java.net.URL
 
 class ApplicationTest {
 
+    var TEST_URL="http://localhost:7171/thingstodo/"
+
     val client = HttpClient(Apache) {
         install(JsonFeature) {
             serializer = GsonSerializer() //set automatic Json serializer
@@ -40,20 +42,20 @@ class ApplicationTest {
 
                 runBlocking {
 
-                    val items = client.call("http://localhost:7171/thingstodo").response.readText()
+                    val items = client.call(TEST_URL).response.readText()
 
                     assertThat(items).isEqualTo("[]")
 
 
                     val newItemId = client.post<String> {
-                        url(URL("http://127.0.0.1:7171/thingstodo"))
+                        url(URL(TEST_URL))
                         contentType(ContentType.Application.Json)
                         body = todoItem
                     }
 
                     assertThat(newItemId).isEqualTo("Added with id 1")
 
-                    val newItem = client.get<ThingToDo>("http://localhost:7171/thingstodo/1")
+                    val newItem = client.get<ThingToDo>(TEST_URL.plus("1"))
 
                     assertThat(newItem).isEqualTo(todoItem)
 
@@ -77,12 +79,12 @@ class ApplicationTest {
 
             runBlocking {
 
-                val items = client.get<Array<ThingToDo>>("http://localhost:7171/thingstodo")
+                val items = client.get<Array<ThingToDo>>(TEST_URL)
 
                 assertThat(items).hasSize(3)
 
 
-                val deleted = client.delete<String>("http://127.0.0.1:7171/thingstodo/1")
+                val deleted = client.delete<String>(TEST_URL.plus("1"))
 
 
                 assertThat(deleted).startsWith("Removed")
@@ -90,14 +92,14 @@ class ApplicationTest {
                 val newItem = ThingToDo("Help the world", 5, NotStarted)
 
                 val putMsg = client.put<String> {
-                    url(URL("http://127.0.0.1:7171/thingstodo/3"))
+                    url(URL(TEST_URL.plus("3")))
                     contentType(ContentType.Application.Json)
                     body = newItem
                 }
 
                 assertThat(putMsg).startsWith("Replaced old value")
 
-                val editedItem = client.get<ThingToDo>("http://localhost:7171/thingstodo/3")
+                val editedItem = client.get<ThingToDo>(TEST_URL.plus("3"))
 
                 assertThat(editedItem.description).isEqualTo("Help the world")
 

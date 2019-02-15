@@ -31,17 +31,17 @@ class WebServer(val thingsToDo: ThingsToDo, val port: Int): AutoCloseable {
             }
 
             routing {
-                route("/thingstodo") {
+                route("thingstodo") {
                     post {
                         val toDo = call.receive<ThingToDo>()
                         val id = thingsToDo.add(toDo)
                         call.respond("Added with id $id")
                     }
-                    delete("/{id}") {
+                    delete("{id}") {
                         val removed = thingsToDo.remove(id())
                         call.respond("Removed ${removed}")
                     }
-                    get("/{id}") {
+                    get("{id}") {
                         val item = thingsToDo[id()]
 
                         if (item != null) {
@@ -50,7 +50,7 @@ class WebServer(val thingsToDo: ThingsToDo, val port: Int): AutoCloseable {
                             call.respond(HttpStatusCode.NotFound, "item not found!")
                         }
                     }
-                    put("/{id}") {
+                    put("{id}") {
                         val toDo = call.receive<ThingToDo>()
                         val item = thingsToDo.replace(id(), toDo)
 
