@@ -6,7 +6,7 @@ import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 
 
-fun main(args: Array<String>) {
+fun main() {
 
     val server = embeddedServer(Netty, port = 8080) {
         routing {
