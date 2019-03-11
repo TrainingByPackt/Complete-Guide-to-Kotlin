@@ -16,10 +16,10 @@ import kotlinx.coroutines.runBlocking
         runBlocking {
 
             //     Retrieve the content
-            val text = client.call("http://google.com").response.readText()
+            val text = client.call("https://www.packtpub.com/").response.readText()
             println("get $text")
 
-            val resp: HttpResponse = client.delete(host = "www.google.com/")
+            val resp: HttpResponse = client.delete(host = "www.packtpub.com/")
             println("delete response ${resp.status} ${resp.readText()}")
         }
     }

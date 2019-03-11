@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit
 
 class WebServer(val thingsToDo: ThingsToDo, val port: Int): AutoCloseable {
 
-    val server by lazy { createServer() }
+    private val server by lazy { createServer() }
 
     private fun createServer(): ApplicationEngine =
         embeddedServer(Netty, port = port) {
