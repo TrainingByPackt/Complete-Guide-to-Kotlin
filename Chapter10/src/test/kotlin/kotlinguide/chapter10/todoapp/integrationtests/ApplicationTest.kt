@@ -55,7 +55,7 @@ class ApplicationTest {
 
                     assertThat(newItemId).isEqualTo("Added with id 1")
 
-                    val newItem = client.get<ThingToDo>(TEST_URL.plus("1"))
+                    val newItem = client.get<ThingToDo>(TEST_URL + "1")
 
                     assertThat(newItem).isEqualTo(todoItem)
 
@@ -84,7 +84,7 @@ class ApplicationTest {
                 assertThat(items).hasSize(3)
 
 
-                val deleted = client.delete<String>(TEST_URL.plus("1"))
+                val deleted = client.delete<String>(TEST_URL +"1")
 
 
                 assertThat(deleted).startsWith("Removed")
@@ -92,14 +92,14 @@ class ApplicationTest {
                 val newItem = ThingToDo("Help the world", 5, NotStarted)
 
                 val putMsg = client.put<String> {
-                    url(URL(TEST_URL.plus("3")))
+                    url(URL(TEST_URL + "3"))
                     contentType(ContentType.Application.Json)
                     body = newItem
                 }
 
                 assertThat(putMsg).startsWith("Replaced old value")
 
-                val editedItem = client.get<ThingToDo>(TEST_URL.plus("3"))
+                val editedItem = client.get<ThingToDo>(TEST_URL +"3")
 
                 assertThat(editedItem.description).isEqualTo("Help the world")
 
