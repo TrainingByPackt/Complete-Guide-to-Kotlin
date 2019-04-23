@@ -8,8 +8,3 @@ public class AmIAttendingChecker {
         System.out.println("Sam is attending: " + sam.getName());
     }
 }
-
-// java code to paste into this file after converted to Kotlin
-//        for (MeetingAttendee attendee : attendees.getAttendees()) {
-//                System.out.println(attendee.getName() + " is attending");
-//        }
