@@ -17,7 +17,15 @@
 package kotlinguide.chapter03.solution
 
 fun main() {
+    // Solution 1
     for (value in 0..100 step 2) {
         println("value = $value")
     }
+
+    // Solution 2
+    for (value in 0..100) {
+        if (value.isEven()) println("value = $value")
+    }
 }
+
+fun Int.isEven() = this % 2 == 0
