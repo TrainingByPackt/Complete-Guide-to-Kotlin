@@ -19,6 +19,7 @@ package kotlinguide.chapter03
 fun main() {
     val string: String = "Hello World"
 
+    // TODO: Replace with equivalent when statement
     if (string.length == 0) {
         println("string is empty")
     } else if (string.length == 1) {
@@ -26,6 +27,4 @@ fun main() {
     } else {
         println("string has more than one character")
     }
-
-    // TODO: Add code
 }
