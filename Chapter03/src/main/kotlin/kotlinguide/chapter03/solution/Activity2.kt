@@ -32,7 +32,7 @@ fun main() {
     var oddCount = 0
 
     for (string in stringList) {
-        if ((string.length % 2) == 0) {
+        if (string.isEven()) {
             evenCount++
         } else {
             oddCount++
@@ -41,3 +41,5 @@ fun main() {
 
     println("evenCount = $evenCount, oddCount = $oddCount")
 }
+
+fun String.isEven() = this.length %2 == 0
