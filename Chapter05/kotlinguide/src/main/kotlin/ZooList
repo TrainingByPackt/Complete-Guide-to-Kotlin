@@ -1,0 +1,6 @@
+import mammals.Elephant
+
+fun main() {
+    val elephantMammal = Elephant()
+    val elephantAnimal = animals.Elephant()
+}
