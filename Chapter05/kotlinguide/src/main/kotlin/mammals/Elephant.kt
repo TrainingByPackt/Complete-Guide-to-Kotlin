@@ -1,0 +1,4 @@
+package mammals
+
+class Elephant {
+}
