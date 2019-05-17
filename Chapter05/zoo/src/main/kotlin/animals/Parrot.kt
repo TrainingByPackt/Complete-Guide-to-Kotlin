@@ -1,0 +1,4 @@
+package animals
+
+class Parrot {
+}

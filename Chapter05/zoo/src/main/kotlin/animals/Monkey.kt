@@ -1,0 +1,5 @@
+package animals
+
+class Monkey {
+
+}
