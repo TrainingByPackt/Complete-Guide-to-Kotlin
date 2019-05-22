@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test
 class OvenTest {
     @Test
     fun `cook potatos`() {
-        val oven = ToasterOven()
+        val oven = OvenFactory().makeToaster()
         val potatoRecipe = Recipe("potatos")
         oven.start(potatoRecipe)
         oven.stop()

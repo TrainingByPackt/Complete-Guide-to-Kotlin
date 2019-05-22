@@ -1,6 +1,6 @@
 package bank
 
-class Bank() {
+class Bank {
     var balance: Int = 0
         internal set
 

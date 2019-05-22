@@ -1,14 +1,14 @@
 // SOLUTION
-class ToasterOven {
+class ToasterOven: Oven {
     private lateinit var recipe:Recipe
 
-    fun start(recipe: Recipe) {
+    override fun start(recipe: Recipe) {
         this.recipe = recipe
 
         recipe.start()
     }
 
-    fun stop() {
+    override fun stop() {
         recipe.stop()
     }
 }
