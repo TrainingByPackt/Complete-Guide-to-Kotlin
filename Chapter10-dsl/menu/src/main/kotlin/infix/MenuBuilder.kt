@@ -64,12 +64,13 @@ class MenuBuilder(private val name: String) {
         }
     }
 
-    fun create(block: MenuBuilder.() -> Unit) {
+    fun create(block: MenuBuilder.() -> Unit): Menu {
         block()
+        return build()
     }
 
     fun build(): Menu {
-        val dishes = dishBuilders.map { Dish(it.key, it.value.ingredients) }
+        val dishes = dishBuilders.map { it.value.build() }
         return Menu(name, dishes)
     }
 }

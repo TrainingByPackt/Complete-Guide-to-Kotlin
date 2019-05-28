@@ -34,11 +34,25 @@ class FunctionChainTest {
         assertThat(menu.dishes[0].ingredients.size).isEqualTo(3)
     }
 
+    // exercise
     @Test
-    fun `create menu with context variable`() {
+    fun `create menu with pizza with function chain`() {
         val builder = MenuBuilder("Sunshine")
 
-        val menu = builder
+        builder.add("pizza", "cheese")
+            .add("pizza", "pepperoni")
+            .add("pizza", "mushroom")
+
+        val menu = builder.build()
+
+        assertThat(menu.dishes[0].name).isEqualTo("pizza")
+        assertThat(menu.dishes[0].ingredients.size).isEqualTo(3)
+    }
+
+
+    @Test
+    fun `create menu with context variable`() {
+        val menu = MenuBuilder("Sunshine")
             .dish("blt").add("bacon").add("lettuce").add("tomato")
             .dish("pizza").add("cheese").add("pepperoni").add("mushroom")
             .build()
@@ -51,7 +65,7 @@ class FunctionChainTest {
     fun `create menu with nested builders`() {
         val builder = MenuBuilder("Sunshine")
 
-        builder.dish("ham and cheese").add("cheese").asSandwich().topping(ham).condiment(mayonase)
+        builder.dish("ham and cheese").add("cheese").asSandwich().topping(ham).condiment(mayonnaise)
         builder.dish("pizza").add("cheese").asPizza().topping(pepperoni).topping(mushrooms)
 
         val menu = builder.build()

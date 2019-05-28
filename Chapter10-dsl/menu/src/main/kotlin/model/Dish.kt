@@ -1,4 +1,3 @@
 package model
 
-class Dish(val name:String, val ingredients: List<String>) {
-}
+class Dish(val name:String, val ingredients: List<String>)

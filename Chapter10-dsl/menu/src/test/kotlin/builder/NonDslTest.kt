@@ -15,8 +15,8 @@ class NonDslTest {
         val blt = Dish("blt", ingredientsForBlt)
         dishes.add(blt)
 
-        val ingredientPizza = listOf("pepperoni", "mushrooms")
-        val pizza = Dish("pizza", ingredientPizza)
+        val ingredientsForPizza = listOf("pepperoni", "mushrooms")
+        val pizza = Dish("pizza", ingredientsForPizza)
         dishes.add(pizza)
 
         val menu = Menu("Sunshine", dishes)

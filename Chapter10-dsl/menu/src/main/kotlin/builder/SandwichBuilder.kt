@@ -7,7 +7,7 @@ class SandwichBuilder(val menu: MenuBuilder) {
     }
 
     enum class Condiment {
-        mayonase,
+        mayonnaise,
         mustard
     }
 

@@ -26,7 +26,6 @@ class InfixTest {
             "blt" with condiments named mayonnaise and mustard
 
             "blt" with ingredients first "bacon" then "lettuce" then "tomato" and condiments named mayonnaise and mustard
-
         }
     }
 }
