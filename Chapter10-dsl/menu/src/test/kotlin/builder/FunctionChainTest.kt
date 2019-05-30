@@ -10,7 +10,7 @@ import builder.SandwichBuilder.Condiment.*
 class FunctionChainTest {
 //    @Test
 //    fun `create menu with dish`() {
-//        val menu = MenuBuilder("Sunshine")
+//        val menu = MenuBuilder("Sunrise Restaurant")
 //
 //        val builder = DishBuilder()
 //        val blt = builder.name("blt").add("bacon").add("lettuce").add("tomato").build()
@@ -22,7 +22,7 @@ class FunctionChainTest {
 
     @Test
     fun `create menu with function chain`() {
-        val builder = MenuBuilder("Sunshine")
+        val builder = MenuBuilder("Sunrise Restaurant")
 
         builder.add("blt", "bacon")
             .add("blt", "lettuce")
@@ -37,7 +37,7 @@ class FunctionChainTest {
     // exercise
     @Test
     fun `create menu with pizza with function chain`() {
-        val builder = MenuBuilder("Sunshine")
+        val builder = MenuBuilder("Sunrise Restaurant")
 
         builder.add("pizza", "cheese")
             .add("pizza", "pepperoni")
@@ -52,7 +52,7 @@ class FunctionChainTest {
 
     @Test
     fun `create menu with context variable`() {
-        val menu = MenuBuilder("Sunshine")
+        val menu = MenuBuilder("Sunrise Restaurant")
             .dish("blt").add("bacon").add("lettuce").add("tomato")
             .dish("pizza").add("cheese").add("pepperoni").add("mushroom")
             .build()
@@ -63,7 +63,7 @@ class FunctionChainTest {
 
     @Test
     fun `create menu with nested builders`() {
-        val builder = MenuBuilder("Sunshine")
+        val builder = MenuBuilder("Sunrise Restaurant")
 
         builder.dish("ham and cheese").add("cheese").asSandwich().topping(ham).condiment(mayonnaise)
         builder.dish("pizza").add("cheese").asPizza().topping(pepperoni).topping(mushrooms)
@@ -74,16 +74,27 @@ class FunctionChainTest {
         assertThat(menu.dishes[0].ingredients.size).isEqualTo(3)
 
         assertThat(menu.dishes[1].name).isEqualTo("pizza")
-        assertThat(menu.dishes[1].ingredients.size).isEqualTo(2)
+        assertThat(menu.dishes[1].ingredients.size).isEqualTo(3)
     }
 
     @Test
     fun `lookup dishes using symbols`() {
-        val builder = MenuBuilder("Sunrise")
+        val builder = MenuBuilder("Sunrise Restaurant")
 
         val menu = builder
             .add("blt", "bacon")
             .add("blt", "lettuce")
             .add("blt", "tomato")
+    }
+
+    @Test
+    fun `temp variables`() {
+        val builder = MenuBuilder("Sunrise Restaurant")
+
+        // currently not supported by the code
+//        val blt = builder.add("blt")
+//        blt.add("bacon")
+//        val pizza = builder.add("pizza")
+//        pizza.add("cheese")
     }
 }

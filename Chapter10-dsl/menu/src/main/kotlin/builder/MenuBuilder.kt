@@ -18,6 +18,7 @@ class MenuBuilder(private val name:String) {
         var ingredients = dishes[dishName]
         if (ingredients == null) {
             ingredients = mutableListOf()
+            dishes[dishName] = ingredients
         }
         return ingredients
     }

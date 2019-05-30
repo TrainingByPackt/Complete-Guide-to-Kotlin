@@ -9,8 +9,8 @@ import infix.MenuBuilder.CondimentType.*
 class InfixTest {
     @Test
     fun `hello sections`() {
-        val builder = MenuBuilder("Sunshine")
-        builder.create {
+        val builder = MenuBuilder("Sunrise Restaurant")
+        builder {
             "blt" has "bacon"
             "blt" has "lettuce"
             "blt" has "tomato"
@@ -22,10 +22,10 @@ class InfixTest {
             "blt" with condiments named mayonnaise
             "blt" with condiments named mustard
 
-            "blt" with ingredients first "bacon" then "lettuce" then "tomato"
+            "blt" with ingredients named "bacon" and "lettuce" and "tomato"
             "blt" with condiments named mayonnaise and mustard
 
-            "blt" with ingredients first "bacon" then "lettuce" then "tomato" and condiments named mayonnaise and mustard
+            "blt" with ingredients named "bacon" and "lettuce" and "tomato" and condiments named mayonnaise and mustard
         }
     }
 }

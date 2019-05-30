@@ -1,13 +1,20 @@
 package infix
 
-import model.Dish
 import model.Menu
 
 class MenuBuilder(private val name: String) {
     val dishBuilders = mutableMapOf<String, DishBuilder>()
 
-    operator fun invoke(block: MenuBuilder.() -> Unit) {
+    object condiments
+    object ingredients
+
+    enum class CondimentType {
+        mayonnaise, mustard
+    }
+
+    operator fun invoke(block: MenuBuilder.() -> Unit) : Menu {
         block()
+        return build()
     }
 
     fun dish(name: String, block: DishBuilder.() -> Unit): DishBuilder {
@@ -21,15 +28,9 @@ class MenuBuilder(private val name: String) {
         dishBuilders[this]?.add(ingredient)
     }
 
-    object condiments
-    object ingredients
-
-    enum class CondimentType {
-        mayonnaise, mustard
-    }
-
     infix fun String.with(ingredient: ingredients): IngredientAdder =
         IngredientAdder(dishBuilders[this] ?: dish(this, {}))
+
     infix fun String.with(condiment: condiments): CondimentAdder =
         CondimentAdder(dishBuilders[this] ?: dish(this, {}))
 
@@ -39,12 +40,7 @@ class MenuBuilder(private val name: String) {
             return this
         }
 
-        infix fun first(ingredient: String): IngredientAdder {
-            dish.add(ingredient)
-            return this
-        }
-
-        infix fun then(ingredient: String): IngredientAdder {
+        infix fun and(ingredient: String): IngredientAdder {
             dish.add(ingredient)
             return this
         }

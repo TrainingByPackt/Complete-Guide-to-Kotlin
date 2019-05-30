@@ -19,9 +19,9 @@ class NonDslTest {
         val pizza = Dish("pizza", ingredientsForPizza)
         dishes.add(pizza)
 
-        val menu = Menu("Sunshine", dishes)
+        val menu = Menu("Sunrise Restaurant", dishes)
 
-        assertThat(menu.name).isEqualTo("Sunshine")
+        assertThat(menu.name).isEqualTo("Sunrise Restaurant")
         assertThat(menu.dishes.size).isEqualTo(3)
     }
 }

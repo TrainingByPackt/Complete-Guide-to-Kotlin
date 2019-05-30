@@ -9,7 +9,7 @@ import structure.DishBuilder.Size.small
 class StructuredTest {
     @Test
     fun `create two menu`() {
-        val builder = MenuBuilder("Sunshine")
+        val builder = MenuBuilder("Sunrise Restaurant")
         val menu = builder.create {
             dish("pizza") {
                 +"cheese"
@@ -26,7 +26,7 @@ class StructuredTest {
 
     @Test
     fun `create single section menu`() {
-        val builder = MenuBuilder("Sunshine")
+        val builder = MenuBuilder("Sunrise Restaurant")
         val menu = builder.create {
             // lambda
             dish("pizza") {
@@ -65,7 +65,7 @@ class StructuredTest {
 
     @Test
     fun `create menu with pizza`() {
-        val builder = MenuBuilder("Sunshine")
+        val builder = MenuBuilder("Sunrise Restaurant")
         val menu = builder.create {
             // lambda
             dish("pizza") {
@@ -80,7 +80,7 @@ class StructuredTest {
 
     @Test
     fun `test dsl marker`() {
-        val builder = MenuBuilder("Sunshine")
+        val builder = MenuBuilder("Sunrise Restaurant")
         val menu = builder.create {
             // lambda
             dish("pizza") {
@@ -99,7 +99,7 @@ class StructuredTest {
 
     @Test
     fun `create menu with sections`() {
-        val builder = MenuBuilder("Sunshine")
+        val builder = MenuBuilder("Sunrise Restaurant")
 //        builder {
 //            section {
 //                name = "breakfast"
