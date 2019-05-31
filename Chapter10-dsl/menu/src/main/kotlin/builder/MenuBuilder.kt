@@ -4,6 +4,7 @@ import model.Dish
 import model.Menu
 
 class MenuBuilder(private val name:String) {
+    var lastIngredient: String? = null
     var currentDish: String? = null
 
     private val dishes = mutableMapOf<String, MutableList<String>>()
@@ -25,9 +26,17 @@ class MenuBuilder(private val name:String) {
 
     // uses the add context
     fun add(ingredient: String): MenuBuilder {
+        lastIngredient = ingredient
         currentDish?.let {
             getOrCreate(it).add(ingredient)
         } ?: throw Exception("currentDish not set")
+        return this
+    }
+
+    fun extra(): MenuBuilder {
+        lastIngredient?.let {
+            add(it)
+        } ?: throw Exception("lastIngredient not set")
         return this
     }
 

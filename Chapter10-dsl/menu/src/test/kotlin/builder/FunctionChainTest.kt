@@ -63,6 +63,14 @@ class FunctionChainTest {
     }
 
     @Test
+    fun `create menu with context variable extra`() {
+        val menu = MenuBuilder("Sunrise Restaurant")
+            .dish("pizza").add("pepperoni").add("cheese").extra().build()
+
+        assertThat(menu.dishes[0].ingredients.size).isEqualTo(3)
+    }
+
+    @Test
     fun `create menu with nested builders`() {
         val builder = MenuBuilder("Sunrise Restaurant")
 
