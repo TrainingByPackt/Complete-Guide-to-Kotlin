@@ -83,7 +83,7 @@ class StructuredTest {
         val builder = MenuBuilder("Sunrise Restaurant")
         val menu = builder.create {
 
-            val pizza = dish("pizza")
+            val pizza = dish("pizza", {})
             pizza("cheese")
             pizza("pepperoni")
             pizza("mushroom")
