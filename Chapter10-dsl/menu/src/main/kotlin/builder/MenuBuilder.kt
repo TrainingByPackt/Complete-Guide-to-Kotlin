@@ -42,6 +42,8 @@ class MenuBuilder(private val name:String) {
 
     fun asSandwich(): SandwichBuilder = SandwichBuilder(this)
 
+    fun asBurger(): BurgerBuilder = BurgerBuilder(this)
+
     fun build(): Menu {
         val dishes = dishes.map { Dish(it.key, it.value) }
         return Menu(name, dishes)

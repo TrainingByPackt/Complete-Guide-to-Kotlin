@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test
 import builder.PizzaBuilder.Topping.*
 import builder.SandwichBuilder.Topping.*
 import builder.SandwichBuilder.Condiment.*
+import builder.BurgerBuilder.Patty.beef
 
 class FunctionChainTest {
 //    @Test
@@ -75,6 +76,18 @@ class FunctionChainTest {
 
         assertThat(menu.dishes[1].name).isEqualTo("pizza")
         assertThat(menu.dishes[1].ingredients.size).isEqualTo(3)
+    }
+
+    @Test
+    fun `create burger nested builders`() {
+        val builder = MenuBuilder("Sunrise Restaurant")
+
+        builder.dish("burger").add("cheese").asBurger().patty(beef)
+
+        val menu = builder.build()
+
+        assertThat(menu.dishes[0].name).isEqualTo("burger")
+        assertThat(menu.dishes[0].ingredients.size).isEqualTo(2)
     }
 
     @Test
