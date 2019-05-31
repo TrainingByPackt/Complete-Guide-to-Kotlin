@@ -1,16 +1,9 @@
 package infix
 
 import model.Dish
-import model.Menu
 
-class DishBuilder() {
-    var name = ""
+class DishBuilder(val name: String) {
     val ingredients = mutableListOf<String>()
-
-    fun name(name: String): DishBuilder {
-        this.name = name
-        return this
-    }
 
     fun add(ingredient: String): DishBuilder {
         ingredients.add(ingredient)

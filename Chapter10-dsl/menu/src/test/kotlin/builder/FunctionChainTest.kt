@@ -3,23 +3,12 @@ package builder
 import assertk.assertThat
 import assertk.assertions.isEqualTo
 import org.junit.jupiter.api.Test
-import builder.PizzaBuilder.Topping.*
-import builder.SandwichBuilder.Topping.*
-import builder.SandwichBuilder.Condiment.*
+import builder.PizzaBuilder.Topping.mushrooms
+import builder.PizzaBuilder.Topping.pepperoni
+import builder.SandwichBuilder.Topping.ham
+import builder.SandwichBuilder.Condiment.mayonnaise
 
 class FunctionChainTest {
-//    @Test
-//    fun `create menu with dish`() {
-//        val menu = MenuBuilder("Sunrise Restaurant")
-//
-//        val builder = DishBuilder()
-//        val blt = builder.name("blt").add("bacon").add("lettuce").add("tomato").build()
-//        menu.add(blt)
-//
-//        assertThat(dish.name).isEqualTo("blt")
-//        assertThat(dish.ingredients.size).isEqualTo(3)
-//    }
-
     @Test
     fun `create menu with function chain`() {
         val builder = MenuBuilder("Sunrise Restaurant")
@@ -34,7 +23,6 @@ class FunctionChainTest {
         assertThat(menu.dishes[0].ingredients.size).isEqualTo(3)
     }
 
-    // exercise
     @Test
     fun `create menu with pizza with function chain`() {
         val builder = MenuBuilder("Sunrise Restaurant")
@@ -48,7 +36,6 @@ class FunctionChainTest {
         assertThat(menu.dishes[0].name).isEqualTo("pizza")
         assertThat(menu.dishes[0].ingredients.size).isEqualTo(3)
     }
-
 
     @Test
     fun `create menu with context variable`() {

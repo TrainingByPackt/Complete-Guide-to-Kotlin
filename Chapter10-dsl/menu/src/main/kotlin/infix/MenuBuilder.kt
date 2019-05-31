@@ -18,7 +18,7 @@ class MenuBuilder(private val name: String) {
     }
 
     fun dish(name: String, block: DishBuilder.() -> Unit): DishBuilder {
-        val builder = DishBuilder()
+        val builder = DishBuilder(name)
         dishBuilders[name] = builder
         builder.block()
         return builder
