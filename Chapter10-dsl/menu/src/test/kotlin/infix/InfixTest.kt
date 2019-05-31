@@ -1,10 +1,10 @@
-package builder
+package infix
 
 import org.junit.jupiter.api.Test
-import infix.MenuBuilder
 import infix.MenuBuilder.ingredients
 import infix.MenuBuilder.condiments
-import infix.MenuBuilder.CondimentType.*
+import infix.MenuBuilder.CondimentType.mayonnaise
+import infix.MenuBuilder.CondimentType.mustard
 
 class InfixTest {
     @Test

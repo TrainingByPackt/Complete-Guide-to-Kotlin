@@ -33,7 +33,7 @@ class DishBuilder(val name: String) {
             ingredients.add("tomato")
             return true
         }
-    
+
     fun add(ingredient: String): DishBuilder {
         ingredients.add(ingredient)
         return this

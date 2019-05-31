@@ -22,6 +22,7 @@ class NonDslTest {
         val menu = Menu("Sunrise Restaurant", dishes)
 
         assertThat(menu.name).isEqualTo("Sunrise Restaurant")
-        assertThat(menu.dishes.size).isEqualTo(3)
+        assertThat(menu.dishes.size).isEqualTo(2)
+        assertThat(menu.dishes[0].ingredients.size).isEqualTo(3)
     }
 }

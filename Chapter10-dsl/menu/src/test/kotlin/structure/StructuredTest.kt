@@ -3,7 +3,6 @@ package structure
 import assertk.assertThat
 import assertk.assertions.isEqualTo
 import org.junit.jupiter.api.Test
-import structure.MenuBuilder
 import structure.DishBuilder.Size.small
 
 class StructuredTest {
@@ -124,37 +123,4 @@ class StructuredTest {
         assertThat(menu.dishes[0].name).isEqualTo("pizza")
         assertThat(menu.dishes[0].ingredients.size).isEqualTo(3)
     }
-
-    @Test
-    fun `create menu with sections`() {
-        val builder = MenuBuilder("Sunrise Restaurant")
-//        builder {
-//            section {
-//                name = "breakfast"
-//                "tofu scramble".has {
-//                    +"tofu"
-//                    +"avocado"
-//                    +"tomato"
-//                }
-//            }
-//
-//            section {
-//                name = "lunch"
-//                // using operator
-//                dish("veggie pizza") {
-//                    +"mushroom"
-//                    +"onion"
-//                    +"peppers"
-//                }
-//                // using properties
-//                dish("blt") {
-//                    bacon
-//                    lettuce
-//                    tomato
-//                }
-//            }
-//        }
-    }
-
-
 }
