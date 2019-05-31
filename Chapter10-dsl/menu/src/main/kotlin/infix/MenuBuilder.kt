@@ -7,10 +7,18 @@ class MenuBuilder(private val name: String) {
 
     object condiments
     object ingredients
+    object bread
+
+    enum class BreadType {
+        white, wheat, rye
+    }
 
     enum class CondimentType {
         mayonnaise, mustard
     }
+
+    infix fun String.with(bread: bread): BreadAdder =
+        BreadAdder(dishBuilders[this] ?: dish(this, {}))
 
     operator fun invoke(block: MenuBuilder.() -> Unit) : Menu {
         block()
@@ -67,6 +75,13 @@ class MenuBuilder(private val name: String) {
 
         infix fun and(condiment: CondimentType): CondimentAdder {
             dish.add(condiment.name)
+            return this
+        }
+    }
+
+    class BreadAdder(private val dish: DishBuilder) {
+        infix fun named(bread: BreadType): BreadAdder {
+            dish.add(bread.name)
             return this
         }
     }
