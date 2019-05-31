@@ -9,6 +9,16 @@ class DishBuilder(val name: String) {
         large
     }
 
+    enum class Topping {
+        pepperoni,
+        mushrooms,
+        onions
+    }
+
+    operator fun Topping.unaryPlus() {
+        ingredients.add(this.name)
+    }
+
     operator fun invoke(ingredient: String) {
         add(ingredient)
     }

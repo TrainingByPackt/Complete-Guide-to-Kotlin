@@ -4,6 +4,9 @@ import assertk.assertThat
 import assertk.assertions.isEqualTo
 import org.junit.jupiter.api.Test
 import structure.DishBuilder.Size.small
+import structure.DishBuilder.Topping.pepperoni
+import structure.DishBuilder.Topping.onions
+import structure.DishBuilder.Topping.mushrooms
 
 class StructuredTest {
     @Test
@@ -102,6 +105,20 @@ class StructuredTest {
             }
         }
         assertThat(menu.dishes[0].name).isEqualTo("vegetarian pizza")
+        assertThat(menu.dishes[0].ingredients.size).isEqualTo(3)
+    }
+
+    @Test
+    fun `create menu with pizza topping enum`() {
+        val builder = MenuBuilder("Sunrise Restaurant")
+        val menu = builder.create {
+            dish("pizza") {
+                +pepperoni
+                +onions
+                +mushrooms
+            }
+        }
+        assertThat(menu.dishes[0].name).isEqualTo("pizza")
         assertThat(menu.dishes[0].ingredients.size).isEqualTo(3)
     }
 
