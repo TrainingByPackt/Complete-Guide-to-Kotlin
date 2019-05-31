@@ -79,6 +79,20 @@ class StructuredTest {
     }
 
     @Test
+    fun `create menu with vegetarian pizza`() {
+        val builder = MenuBuilder("Sunrise Restaurant")
+        val menu = builder.create {
+            dish("vegetarian pizza") {
+                add("peppers")
+                add("sun dried tomatos")
+                add("basil")
+            }
+        }
+        assertThat(menu.dishes[0].name).isEqualTo("vegetarian pizza")
+        assertThat(menu.dishes[0].ingredients.size).isEqualTo(3)
+    }
+
+    @Test
     fun `test dsl marker`() {
         val builder = MenuBuilder("Sunrise Restaurant")
         val menu = builder.create {
