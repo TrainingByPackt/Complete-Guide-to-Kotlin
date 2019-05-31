@@ -3,13 +3,12 @@ package structure
 import model.Dish
 
 @MenuBuilderDsl
-class DishBuilder() {
+class DishBuilder(val name: String) {
     enum class Size {
         small,
         large
     }
 
-    var name = ""
     var size: Size = Size.small
     val ingredients = mutableListOf<String>()
 
@@ -30,11 +29,6 @@ class DishBuilder() {
             ingredients.add("tomato")
             return true
         }
-
-    fun name(name: String): DishBuilder {
-        this.name = name
-        return this
-    }
 
     fun add(ingredient: String): DishBuilder {
         ingredients.add(ingredient)

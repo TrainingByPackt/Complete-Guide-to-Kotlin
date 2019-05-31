@@ -1,4 +1,4 @@
-package builder
+package infix
 
 import org.junit.jupiter.api.Test
 import infix.MenuBuilder
