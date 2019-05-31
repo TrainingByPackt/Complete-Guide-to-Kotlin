@@ -9,6 +9,10 @@ class DishBuilder() {
         large
     }
 
+    operator fun invoke(ingredient: String) {
+        add(ingredient)
+    }
+
     var name = ""
     var size: Size = Size.small
     val ingredients = mutableListOf<String>()

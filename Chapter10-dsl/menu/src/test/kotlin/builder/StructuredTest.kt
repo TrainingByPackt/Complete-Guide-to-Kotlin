@@ -1,4 +1,4 @@
-package builder
+package structure
 
 import assertk.assertThat
 import assertk.assertions.isEqualTo
@@ -73,6 +73,20 @@ class StructuredTest {
                 add("pepperoni")
                 add("mushroom")
             }
+        }
+        assertThat(menu.dishes[0].name).isEqualTo("pizza")
+        assertThat(menu.dishes[0].ingredients.size).isEqualTo(3)
+    }
+
+    @Test
+    fun `create menu with dish invoke`() {
+        val builder = MenuBuilder("Sunrise Restaurant")
+        val menu = builder.create {
+
+            val pizza = dish("pizza")
+            pizza("cheese")
+            pizza("pepperoni")
+            pizza("mushroom")
         }
         assertThat(menu.dishes[0].name).isEqualTo("pizza")
         assertThat(menu.dishes[0].ingredients.size).isEqualTo(3)
