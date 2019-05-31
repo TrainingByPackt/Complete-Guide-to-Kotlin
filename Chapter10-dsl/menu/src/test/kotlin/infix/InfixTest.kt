@@ -1,5 +1,7 @@
 package infix
 
+import assertk.assertThat
+import assertk.assertions.isEqualTo
 import org.junit.jupiter.api.Test
 import infix.MenuBuilder.ingredients
 import infix.MenuBuilder.condiments
@@ -28,4 +30,19 @@ class InfixTest {
             "blt" with ingredients named "bacon" and "lettuce" and "tomato" and condiments named mayonnaise and mustard
         }
     }
+
+    @Test
+    fun `without ingredient`() {
+        val builder = MenuBuilder("Sunrise Restaurant")
+        val menu = builder {
+            "blt" has "bacon"
+            "blt" has "lettuce"
+            "blt" has "tomato"
+
+            "blt" without "bacon"
+        }
+        assertThat(menu.dishes[0].name).isEqualTo("blt")
+        assertThat(menu.dishes[0].ingredients.size).isEqualTo(2)
+    }
+
 }

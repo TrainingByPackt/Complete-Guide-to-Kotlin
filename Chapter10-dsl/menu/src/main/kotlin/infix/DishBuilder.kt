@@ -10,6 +10,11 @@ class DishBuilder(val name: String) {
         return this
     }
 
+    fun remove(ingredient: String): DishBuilder {
+        ingredients.remove(ingredient)
+        return this
+    }
+
     fun build(): Dish {
         return Dish(name, ingredients)
     }

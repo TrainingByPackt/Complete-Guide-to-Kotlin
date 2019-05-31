@@ -25,7 +25,18 @@ class MenuBuilder(private val name: String) {
     }
 
     infix fun String.has(ingredient: String) {
+        addDish(this)
         dishBuilders[this]?.add(ingredient)
+    }
+
+    infix fun String.without(ingredient: String) {
+        dishBuilders[this]?.remove(ingredient)
+    }
+
+    private fun addDish(name: String) {
+        if (!dishBuilders.containsKey(name)) {
+            dishBuilders[name] = DishBuilder(name)
+        }
     }
 
     infix fun String.with(ingredient: ingredients): IngredientAdder =
