@@ -1,10 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.3.21"
+    kotlin("jvm") version "1.3.30"
 }
 
-group = "kotlin"
+group = "kotlinguide"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -13,6 +13,9 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+    testCompile("org.junit.jupiter:junit-jupiter-api:5.4.2")
+//    implementation("com.willowtreeapps.assertk:assertk-jvm:0.17")
+
 }
 
 tasks.withType<KotlinCompile> {
