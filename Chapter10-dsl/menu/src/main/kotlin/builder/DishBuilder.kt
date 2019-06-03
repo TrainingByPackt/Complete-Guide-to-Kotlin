@@ -1,7 +1,6 @@
 package builder
 
 import model.Dish
-import model.Menu
 
 class DishBuilder() {
     var name = ""

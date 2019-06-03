@@ -1,12 +1,11 @@
 package builder
 
-import model.Dish
 import model.Menu
 
 class MenuBuilder(private val name:String) {
     var currentDish: String? = null
 
-    private val dishes = mutableMapOf<String, MutableList<String>>()
+    private val dishes = mutableMapOf<String, DishBuilder>()
 
     // builder style
     fun add(dishName: String, ingredient: String): MenuBuilder {
@@ -14,10 +13,10 @@ class MenuBuilder(private val name:String) {
         return this
     }
 
-    private fun getOrCreate(dishName: String): MutableList<String> {
+    private fun getOrCreate(dishName: String): DishBuilder {
         var ingredients = dishes[dishName]
         if (ingredients == null) {
-            ingredients = mutableListOf()
+            ingredients = DishBuilder()
             dishes[dishName] = ingredients
         }
         return ingredients
@@ -43,7 +42,7 @@ class MenuBuilder(private val name:String) {
     fun asSandwich(): SandwichBuilder = SandwichBuilder(this)
 
     fun build(): Menu {
-        val dishes = dishes.map { Dish(it.key, it.value) }
+        val dishes = dishes.map { it.value.build() }
         return Menu(name, dishes)
     }
 }

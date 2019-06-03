@@ -16,6 +16,10 @@ dependencies {
     implementation(kotlin("stdlib-jdk8"))
     testCompile("org.junit.jupiter:junit-jupiter-api:5.4.2")
     testCompile("org.junit.jupiter:junit-jupiter-engine:5.4.2")
+
+    //https://github.com/MicroUtils/kotlin-logging
+//    compile("io.github.microutils:kotlin-logging:1.6.24")
+    compile( group = "kotlin-logging", name = "io.github.microutils", version = "1.6.24")
 }
 
 tasks.withType<KotlinCompile> {
