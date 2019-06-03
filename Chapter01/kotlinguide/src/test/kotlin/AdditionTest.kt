@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Test
 
 import assertk.assertThat
 import assertk.assertions.isEqualTo
-import org.junit.jupiter.api.Assertions.assertTrue
 
 class AdditionTest {
     @Test
