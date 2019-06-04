@@ -1,15 +1,16 @@
 package calculator
 
+import assertk.all
 import assertk.assertThat
-import org.junit.jupiter.api.Assertions.assertAll
-import org.junit.jupiter.api.Assertions.*
+import assertk.assertions.isEqualTo
+import assertk.assertions.isGreaterThanOrEqualTo
+import assertk.assertions.isLessThan
+import assertk.assertions.isNotNull
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.function.Executable
-import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.api.assertAll
-import assertk.all
-import assertk.assertions.*
+import org.junit.jupiter.api.assertThrows
 
 class CalculatorTest {
     lateinit var calculator: Calculator

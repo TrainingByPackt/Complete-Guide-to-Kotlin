@@ -14,8 +14,9 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    testCompile("org.junit.jupiter:junit-jupiter-api:5.4.2")
-    testCompile("org.junit.jupiter:junit-jupiter-engine:5.4.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.4.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.4.2")
+    testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.17")
 }
 
 tasks.withType<KotlinCompile> {
@@ -23,7 +24,6 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks {
-    // Use the built-in JUnit support of Gradle.
     "test"(Test::class) {
         useJUnitPlatform()
     }

@@ -7,4 +7,6 @@ class Calculator {
         }
         return numerator / denominator
     }
+
+    fun absoluteSquareRoot(input: Double): Double = Math.sqrt(Math.abs(input))
 }
