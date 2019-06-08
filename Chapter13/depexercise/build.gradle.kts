@@ -15,7 +15,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    implementation("joda-time:joda-time:2.10.2")
+    implementation(Config.Dependency.joda)
 }
 
 application {
