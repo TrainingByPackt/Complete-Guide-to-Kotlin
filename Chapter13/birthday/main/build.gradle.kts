@@ -9,5 +9,5 @@ application {
 
 dependencies {
     implementation(project(":core"))
-    implementation(kotlin("stdlib", "1.3.31"))
+    implementation(kotlin("stdlib"))
 }

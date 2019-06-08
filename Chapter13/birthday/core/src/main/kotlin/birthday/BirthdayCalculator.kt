@@ -5,11 +5,9 @@ import org.joda.time.Days
 import java.time.DayOfWeek
 
 class BirthdayCalculator(birthYear: Int, birthMonth: Int, birthDayOfMonth: Int) {
-    private val birthDay: DateTime
+    private val birthDay =
+        DateTime(birthYear, birthMonth, birthDayOfMonth, 0, 0, 0)
 
-    init {
-        birthDay = DateTime(birthYear, birthMonth, birthDayOfMonth, 0, 0, 0)
-    }
     fun daysUntil(): Int {
         val now = DateTime()
         val birthdayThisYear = DateTime(now.year, birthDay.monthOfYear, birthDay.dayOfMonth, 0, 0, 0)
