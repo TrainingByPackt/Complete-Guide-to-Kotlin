@@ -24,4 +24,7 @@ class BirthdayCalculator(birthYear: Int, birthMonth: Int, birthDayOfMonth: Int) 
     fun dayOfTheWeek(): String = DayOfWeek.of(birthDay.dayOfWeek().get()).name
 
     fun age(): Int = DateTime().year - birthDay.year
+
+    fun allInfo() : String =
+            "For birthday: ${birthDay.toLocalDate()}\nAge: ${age()}\nday of the week this year: ${dayOfTheWeek()}\ndays until: ${daysUntil()}"
 }
