@@ -1,20 +1,11 @@
 package main
 
-import bank.Bank
-import bank.BankAdmin
+import birthday.BirthdayCalculator
 
 fun main() {
-	val bank = Bank()
-	bank.deposit(10)
-	println("balance: ${bank.balance}")
-	bank.deleteAccount()
-	println("balance: ${bank.balance}")
+    val calc = BirthdayCalculator(1980, 12, 5)
+    println("age: ${calc.age()}")
+    println("day of the week: ${calc.dayOfTheWeek()}")
+    println("days until: ${calc.daysUntil()}")
 
-
-//	val bankOne = Bank()
-//	val bankTwo = Bank()
-//	bankOne.deposit(10)
-//	println("balance: ${bankOne.balance}")
-//	BankAdmin(bankOne).transferTo(bankTwo)
-//	println("balance bankOne: ${bankOne.balance} bankTwo: ${bankTwo.balance}")
 }

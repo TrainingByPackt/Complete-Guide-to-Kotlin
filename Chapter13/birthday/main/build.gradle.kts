@@ -4,10 +4,10 @@ plugins {
 }
 
 application {
-    mainClassName = "main.Main"
+    mainClassName = "main.MainKt"
 }
 
 dependencies {
-    compile(project(":core"))
-    compile(kotlin("stdlib"))
+    implementation(project(":core"))
+    implementation(kotlin("stdlib", "1.3.31"))
 }
